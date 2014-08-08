@@ -1,0 +1,6 @@
+<% if @user.profile.present? %>
+	<div> <%= @user.profile %> 
+		<%= link_to "Edit", edit_user_path(current_user) %></div>
+<% else %>
+	<div> Your profile is not present. Make one at <%= link_to "Settings", edit_user_path(current_user) %></div>
+<% end %>

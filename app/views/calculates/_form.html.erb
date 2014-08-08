@@ -1,0 +1,30 @@
+<%= form_for(@calculate) do |f| %>
+  <% if @calculate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@calculate.errors.count, "error") %> prohibited this calculate from being saved:</h2>
+
+      <ul>
+      <% @calculate.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :spent_on %><br>
+    <%= f.date_select :spent_on, :order => [:month, :day, :year] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :money_spent %><br>
+    <%= f.number_field :money_spent %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

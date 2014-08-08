@@ -1,0 +1,25 @@
+
+
+<div class="col-md-4">
+  <div class="list-group">
+    <a href="#" class="list-group-item">Blog Category ID 1<span class="badge">3</span></a>
+    <a href="#" class="list-group-item">Blog Category ID 2<span class="badge"><% Blog.where(blog_categories_id = 2).count %></span></a>
+    <a href="#" class="list-group-item">Blog Category ID 3<span class="badge">12</span></a>
+    <a href="#" class="list-group-item">Blog Category ID 4<span class="badge">19</span></a>
+    <a href="#" class="list-group-item">Vestibulum at eros</a>
+  </div>
+</div>
+
+
+<div class="col-md-8">
+  <%= link_to 'New Blog', new_blog_path %>
+  <% @blogs.each do |blog| %>
+  <div><h2><%= link_to blog.title, blog %></h2></div>
+  
+  <div>Posted <%= blog.created_at %> ago. %></div>
+  <div><p><%= blog.content %></p></div>
+
+  <%= link_to 'Edit', edit_blog_path(blog) %>
+  <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+</div>

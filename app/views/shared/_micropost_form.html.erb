@@ -1,0 +1,15 @@
+<%= form_for @micropost, :html => { multipart: true } do |f| %>
+	
+	<div class="field">
+		<%= f.text_area :content, placeholder: "Compose new micropost..." %>
+	</div>
+	
+	<div> Upload image.
+		<%= f.file_field :image %>
+	</div>
+
+	<div style="margin-top:15px">
+		<%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+	</div>
+
+<% end %>

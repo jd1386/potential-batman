@@ -1,0 +1,29 @@
+<h4><%= link_to 'Add New Item', new_calculate_path %></h4>
+
+<h3>가계부</h3>
+<% @calculate_per_day.sort.reverse.each do |day, calculate| %>
+<% daily_sum = 0.0 %>
+ 
+  <div>
+    <h2><%= day.strftime('%B %d, %y') %></h2>
+  </div>
+ 
+ <% @calculate_per_day[day].each do |calculate| %>
+  <div>
+    <span style="padding-right:15px"><%= calculate.name %></span>
+    <span style="padding-right:15px"><%= number_to_currency(calculate.money_spent) %></span>
+    <span style="padding-left:50px;">
+    <%= link_to 'Edit', edit_calculate_path(calculate) %>
+    <%= link_to 'Destroy', calculate, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </span>
+  </div>
+  <% daily_sum = daily_sum + calculate.money_spent %>
+    <% end %>
+  
+  <div style="padding-top:15px">
+    Sum: <strong><%= number_to_currency(daily_sum)%></strong>
+  </div>
+
+   <hr style="margin:10px 0 10px">
+
+<% end %>

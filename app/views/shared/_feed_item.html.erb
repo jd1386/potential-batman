@@ -1,0 +1,34 @@
+<li id="<%= feed_item.id %>">
+	<%= link_to gravatar_for(feed_item.user), feed_item.user %>
+	<div class="content">
+		<div><%= feed_item.content %></div>
+		
+		<% if feed_item.image.present? %>
+				<span><%= image_tag feed_item.image.url(:medium) %></span>
+		<% end %> 	
+		
+	</div>
+
+	<div class="row">
+		<div class="pull-right">
+		Posted <%= time_ago_in_words(feed_item.created_at) %> 전.
+
+<!-- if current_user is equal to feed_item's user, enable editing and deleting. -->
+		<% if current_user?(feed_item.user) %>
+			<div class="btn-group">
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> <span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" role="menu">
+					<li><a href="#">Edit</a></li>
+					<li><a href="#"><%= link_to "Delete", feed_item, 
+					method: :delete,
+					data: { confirm: "Are you sure?" },
+					title: feed_item.content %></a></li>
+				</ul>
+			</div>
+		<% end %>
+
+		</div>
+	</div>
+
+</li>
