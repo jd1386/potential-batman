@@ -21,8 +21,6 @@ ActiveRecord::Schema.define(version: 20140806021206) do
     t.integer  "blog_categories_id"
   end
 
-  add_index "blogs", ["blog_categories_id"], name: "index_blogs_on_blog_categories_id"
-
   create_table "calculates", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
