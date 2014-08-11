@@ -12,7 +12,7 @@ default: &default
 development:
   <<: *default
   database: gagyeboo_development
-  adapter: sqlite3
+  adapter: postgresql
   username: gagyeboo
   password: 
 

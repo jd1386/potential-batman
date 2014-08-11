@@ -8,7 +8,7 @@ gem 'rails', '4.1.2'
 
 
 # Use sqlite for db
-gem 'sqlite3' 		
+gem 'sqlite3', group: :development 		
 
 
 # Use SCSS for stylesheets
