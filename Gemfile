@@ -6,10 +6,10 @@ ruby '1.9.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.2'
 
-group :development, :test do
+
 # Use sqlite for db
-	gem 'sqlite3' 		
-end
+gem 'sqlite3' 		
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -47,6 +47,12 @@ gem 'will_paginate-bootstrap' # to integrate will_paginate with bootstrap
 # Image uploader
 gem 'paperclip', '~> 4.2.0'
 
+group :production do
+# Use postgresql for production-level db
+	gem 'pg', '0.15.1'
+	gem 'rails_12factor', '0.0.2'
+end
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
@@ -55,10 +61,3 @@ gem 'paperclip', '~> 4.2.0'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
-
-group :production do
-# Use postgresql for production-level db
-	gem 'pg', '0.15.1'
-	gem 'rails_12factor', '0.0.2'
-end

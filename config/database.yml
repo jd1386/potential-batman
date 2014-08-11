@@ -5,15 +5,17 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlite3
   encoding: unicode
   pool: 5
   timeout: 5000
-  host: localhost
 
 development:
   <<: *default
   database: gagyeboo_development
+  adapter: sqlite3
+  username: gagyeboo
+  password: 
+
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -22,7 +24,7 @@ test:
   <<: *default
   database: gagyeboo_test
 
+
 production:
   <<: *default
-  database: gagyeboo_production
   adapter: postgresql

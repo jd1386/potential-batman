@@ -126,6 +126,47 @@ li .content {
 /* end bubble */
 
 
+/* microposts */
+
+ul.microposts {
+  list-style-type: none;
+}
+
+ul.microposts li .row {
+  padding-bottom: 15px;
+}
+/* end microposts */
+
+/* .stats */
+section .stats {
+  margin-bottom: 10px;
+}
+
+section .stats a {
+  border-left: 2px solid gray;
+  text-decoration: none;
+  padding: 0 20px;
+  color: gray;
+}
+
+/* end .stats */
+
+/* following */
+.user_avatars img {
+  width: 38px;
+  margin: 0 5px 5px 0;
+}
+
+/* end following */
+
+/* follow_form */
+
+#follow_form {
+  margin-top: 12px;
+}
+
+/* end follow_form */
+
 /* sticky footer */
 
 .footer {

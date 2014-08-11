@@ -1,6 +1,11 @@
 <% if @user.profile.present? %>
 	<div> <%= @user.profile %> 
-		<%= link_to "Edit", edit_user_path(current_user) %></div>
+		<% if current_user == @user %>
+			<%= link_to "Edit", edit_user_path(current_user) %></div>
+		<% end %>
 <% else %>
-	<div> Your profile is not present. Make one at <%= link_to "Settings", edit_user_path(current_user) %></div>
+	<div> Profile is not present. Make one at 
+		<% if current_user() %>
+			<%= link_to "Settings", edit_user_path(current_user) %></div>
+	<% end %>
 <% end %>
